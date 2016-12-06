@@ -7,5 +7,5 @@
   zypper:
     name: "{{ item }}"
     state: present
-  with_items: autofs_pkg_names
+  with_items: '{{ autofs_pkg_names }}'
 

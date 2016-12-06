@@ -9,5 +9,5 @@
     state: present
     update_cache: "{{ autofs_pkg_cache_update }}"
     cache_valid_time: "{{ autofs_pkg_cache_time }}"
-  with_items: autofs_pkg_names
+  with_items: '{{ autofs_pkg_names }}'
 
