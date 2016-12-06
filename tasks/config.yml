@@ -5,7 +5,7 @@
 - name: "Config| ALL    | create indirect map file(s) from template"
   sudo: Yes
   template: src="indirect_map.j2" dest="/etc/autofs_{{item.name}}" mode=600
-  with_items: autofs_indirect_maps
+  with_items: '{{ autofs_indirect_maps }}'
   notify: restart autofs
 
 
@@ -14,7 +14,7 @@
   file:
     path: "{{item.path}}"
     state: directory
-  with_items: autofs_indirect_maps
+  with_items: '{{ autofs_indirect_maps }}'
   notify: restart autofs
 
 
@@ -23,7 +23,7 @@
   lineinfile: 
     dest: "{{ __autofs_path_master }}"
     line: "{{item.path}}			autofs_{{item.name}}"
-  with_items: autofs_indirect_maps
+  with_items: '{{ autofs_indirect_maps }}'
   notify: restart autofs
 
 
